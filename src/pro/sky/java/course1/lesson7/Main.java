@@ -3,23 +3,24 @@ package pro.sky.java.course1.lesson7;
 public class Main {
     public static void main(String[] args) {
 
-        defineYear(300);
-        getAppVersion(0, 2021);
-        validateText(95);
+        printLeapYear(2344);
+        printAppVersion(0, 2021);
+        getDeliveryDays(95);
         sortString("reddit");
         reverseArray(new int[]{3, 2, 1, 6, 5});
 
     }
 
-    public static void defineYear(int leapYear) {
-        if ((leapYear % 4 == 0 || leapYear % 100 != 0) && leapYear % 400 == 0) {
-            System.out.println(leapYear + " - високосный год");
+
+    public static void printLeapYear(int year) {
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            System.out.println(year + " - високосный год");
         } else {
-            System.out.println(leapYear + " - невисокосный год");
+            System.out.println(year + " - невисокосный год");
         }
     }
 
-    public static void getAppVersion(int clientOS, int clientDeviceYear) {
+    public static void printAppVersion(int clientOS, int clientDeviceYear) {
         int currentYear = 2021;
         if (clientOS < 0 || clientOS > 1) {//Указываем на то, что у пользователя незнакомая OS
             System.out.println("Устройство не определено");
@@ -38,7 +39,7 @@ public class Main {
         }
     }
 
-    public static void validateText(int deliveryDistance) {
+    public static int getDeliveryDays(int deliveryDistance) {
         int deliveryDays = 1;//обычные условия доставки
         if (deliveryDistance > 20) {//+1 день доставки
             deliveryDays++;
@@ -46,7 +47,7 @@ public class Main {
         if (deliveryDistance > 60) {//Доставка на сутки дольше (2 дня)
             deliveryDays++;
         }
-        System.out.println("Доставка банковской карты займёт " + deliveryDays + " суток.");
+        return deliveryDays;
     }
 
     public static void sortString(String abc) {
@@ -62,7 +63,6 @@ public class Main {
 
     public static void reverseArray(int[] arr) {
         for (int i = arr.length - 1; i >= 0; i--) {
-            System.out.print(arr[i]);
         }
     }
 }
